@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { Todolist } from '../todolists/todolist.entity';
 
 @Entity('users')
 export class User {
@@ -23,4 +24,7 @@ export class User {
   })
   @Column()
   password: string;
+  @Column()
+  @OneToMany(() => Todolist, (todolist) => todolist.user)
+  todolists: Todolist[];
 }

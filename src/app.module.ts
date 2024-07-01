@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import * as process from 'node:process';
 import { User } from './users/user.entity';
+import { TodolistsModule } from './todolists/todolists.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { User } from './users/user.entity';
       synchronize: process.env.SYNCHRONIZE === 'true',
     }),
     UsersModule,
+    TodolistsModule,
+    TasksModule,
   ],
 })
 export class AppModule {}
