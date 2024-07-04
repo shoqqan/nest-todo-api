@@ -24,7 +24,6 @@ export class User {
   })
   @Column()
   password: string;
-  @Column()
   @OneToMany(() => Todolist, (todolist) => todolist.user)
   todolists: Todolist[];
 }

@@ -6,6 +6,8 @@ import * as process from 'node:process';
 import { User } from './users/user.entity';
 import { TodolistsModule } from './todolists/todolists.module';
 import { TasksModule } from './tasks/tasks.module';
+import { Todolist } from './todolists/todolist.entity';
+import { Task } from './tasks/task.entity';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { TasksModule } from './tasks/tasks.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: [User],
+      entities: [User, Todolist, Task],
       synchronize: process.env.SYNCHRONIZE === 'true',
     }),
     UsersModule,
